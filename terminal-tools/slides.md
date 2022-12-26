@@ -142,6 +142,32 @@ https://github.com/BurntSushi/ripgrep
 
 https://github.com/sharkdp/bat
 
-## zoxide
+--- 
+
+# お便利ツールを使う
+
+## ghq (git)
+
+https://github.com/x-motemen/ghq
+
+## zoxide　(cd)
 
 https://github.com/ajeetdsouza/zoxide
+
+## asdf　(ooEnv)
+
+https://github.com/asdf-vm/asdf
+
+--- 
+
+# これらのツールのセットアップを助けてくれるツール
+
+## Homebrew
+
+https://github.com/Homebrew/brew
+
+-> Brew Bundle
+
+## mackup (設定ファイルの同期)
+
+https://github.com/lra/mackup
