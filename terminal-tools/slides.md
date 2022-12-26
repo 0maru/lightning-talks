@@ -90,18 +90,5 @@ mpm run dev
 
 ---
 
-# タイポとタイピングの数を減らす
-
-
-
 ---
 
-ls
-
-ga
-
-gcm 'WIP'
-
-git push
-
-pnpm dev
