@@ -26,7 +26,7 @@ css: unocss
 layout: intro
 ---
 
-# ターミナルヨチヨチ歩き
+# ターミナルの歩き方
 
 ---
 
@@ -89,8 +89,57 @@ mpm run dev
 ## タイポぉぉぉぉ
 
 ---
+layout: intro
+---
 
-# end
+## タイピングの回数が減ればタイポが減る
+
+---
+layout: intro
+---
+
+## タイピングを減らすためには？？
 
 ---
 
+## 1. 補完を使う
+　
+## 2. 手順書からコマンドをコピペで実行する
+　
+## 3. 長いコマンドをまとめたスクリプトを実行する
+
+---
+
+# 実行履歴からコマンドを検索して実行する
+
+---
+
+# interactive filtering tool
+
+## fzf
+
+https://github.com/junegunn/fzf
+
+## peco
+
+https://github.com/peco/peco
+
+---
+
+# 次世代のツールを使う
+
+## exa (ls)
+
+https://github.com/ogham/exa
+
+## ripgrep (grep)
+
+https://github.com/BurntSushi/ripgrep
+
+## bat (cat)
+
+https://github.com/sharkdp/bat
+
+## zoxide
+
+https://github.com/ajeetdsouza/zoxide
