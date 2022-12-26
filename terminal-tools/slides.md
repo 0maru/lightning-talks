@@ -142,6 +142,10 @@ https://github.com/BurntSushi/ripgrep
 
 https://github.com/sharkdp/bat
 
+## fd (find)
+
+https://github.com/sharkdp/fd
+
 --- 
 
 # お便利ツールを使う
