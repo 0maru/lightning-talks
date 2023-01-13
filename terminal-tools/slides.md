@@ -21,8 +21,6 @@ drawings:
   persist: false
 # use UnoCSS
 css: unocss
----
----
 layout: intro
 ---
 
@@ -126,7 +124,16 @@ https://github.com/junegunn/fzf
 
 https://github.com/peco/peco
 
---- 
+---
+
+# zsh からシェルを乗り換える
+
+## fish shell
+
+https://github.com/fish-shell/fish-shell
+
+
+---
 
 # 補完を強力にする
 
@@ -134,23 +141,15 @@ https://github.com/peco/peco
 
 https://github.com/withfig/autocomplete
 
-## git-completion
-
-## git-completion
+## zsh-autocomplete
 
 https://github.com/marlonrichert/zsh-autocomplete
 
 ## zsh-autosuggestions
-<!--  -->
-
-
-
-
-
 
 https://github.com/zsh-users/zsh-autosuggestions
 
---- 
+---
 
 # お便利ツールを使う
 
@@ -166,7 +165,7 @@ https://github.com/ajeetdsouza/zoxide
 
 https://github.com/asdf-vm/asdf
 
---- 
+---
 
 # これらのツールのセットアップを助けてくれるツール
 
