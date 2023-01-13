@@ -106,7 +106,7 @@ layout: intro
 　
 ## 2. 手順書からコマンドをコピペで実行する
 　
-## 3. 長いコマンドをまとめたスクリプトを実行する
+## 3. デプロイコマンド等の長いコマンドをまとめたスクリプトを実行する
 
 ---
 layout: intro
@@ -126,25 +126,29 @@ https://github.com/junegunn/fzf
 
 https://github.com/peco/peco
 
----
+--- 
 
-# 次世代のツールを使う
+# 補完を強力にする
 
-## exa (ls)
+## Fig
 
-https://github.com/ogham/exa
+https://github.com/withfig/autocomplete
 
-## ripgrep (grep)
+## git-completion
 
-https://github.com/BurntSushi/ripgrep
+## git-completion
 
-## bat (cat)
+https://github.com/marlonrichert/zsh-autocomplete
 
-https://github.com/sharkdp/bat
+## zsh-autosuggestions
+<!--  -->
 
-## fd (find)
 
-https://github.com/sharkdp/fd
+
+
+
+
+https://github.com/zsh-users/zsh-autosuggestions
 
 --- 
 
@@ -175,3 +179,24 @@ https://github.com/Homebrew/brew
 ## mackup (設定ファイルの同期)
 
 https://github.com/lra/mackup
+
+---
+
+# 次世代のツールを使う
+
+## exa (ls)
+
+https://github.com/ogham/exa
+
+## ripgrep (grep)
+
+https://github.com/BurntSushi/ripgrep
+
+## bat (cat)
+
+https://github.com/sharkdp/bat
+
+## fd (find)
+
+https://github.com/sharkdp/fd
+
