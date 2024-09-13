@@ -18,7 +18,7 @@ layout: intro
 
 https://github.com/duckdb/duckdb
 
-2024-09-09　に 1.1.0 がリリースされた
+2024-09-09 に 1.1.0 がリリースされた
 
 初回リリースは2019年
 
@@ -79,13 +79,13 @@ CSVやJSONファイルを読み込んでテーブルの代わりに使用する�
 ## CSVファイルの読み込み
 
 ```
-SELECT * FROM 'data.csv';
+SELECT * FROM 'bookstore-sales-data.csv';
 ```
 
 ## JSONファイルの読み込み
 
 ```
-SELECT * FROM 'todos.json';
+SELECT * FROM 'bookstore-sales-data.json';
 ```
 
 ---
@@ -114,7 +114,7 @@ SELECT * FROM 'downloads/*.csv';
 ## 羅列した複数のファイルを読み込む
 
 ```
-SELECT * FROM read_csv(['202408.csv', '202409.csv']);
+SELECT * FROM read_csv(['bookstore-sales-data.csv', 'bookstore-sales-data-2023.csv']);
 ```
 
 ---
