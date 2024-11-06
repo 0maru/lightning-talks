@@ -1,11 +1,11 @@
 {
-  "name": "aws-amplify-ssr",
+  "name": "bitboard",
   "type": "module",
   "private": true,
   "scripts": {
-    "build": "slidev build",
-    "dev": "slidev --open",
-    "export": "slidev export"
+    "build": "bitboard/node_modules/.bin/slidev build",
+    "dev": "bitboard/node_modules/.bin/slidev --open",
+    "export": "bitboard/node_modules/.bin/slidev export"
   },
   "dependencies": {
     "@slidev/cli": "^0.50.0-beta.3",
