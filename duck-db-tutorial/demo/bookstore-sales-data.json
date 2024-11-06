@@ -1,0 +1,192 @@
+[
+  {
+    "date": "2024-01-01",
+    "order_id": 1001,
+    "customer_id": "C001",
+    "book_id": "B001",
+    "book_title": "Python入門",
+    "category": "プログラミング",
+    "price": 2800,
+    "quantity": 1
+  },
+  {
+    "date": "2024-01-01",
+    "order_id": 1001,
+    "customer_id": "C001",
+    "book_id": "B002",
+    "book_title": "データ分析実践ガイド",
+    "category": "データサイエンス",
+    "price": 3200,
+    "quantity": 1
+  },
+  {
+    "date": "2024-01-02",
+    "order_id": 1002,
+    "customer_id": "C002",
+    "book_id": "B003",
+    "book_title": "機械学習の基礎",
+    "category": "AI",
+    "price": 4500,
+    "quantity": 1
+  },
+  {
+    "date": "2024-01-02",
+    "order_id": 1003,
+    "customer_id": "C003",
+    "book_id": "B001",
+    "book_title": "Python入門",
+    "category": "プログラミング",
+    "price": 2800,
+    "quantity": 2
+  },
+  {
+    "date": "2024-01-03",
+    "order_id": 1004,
+    "customer_id": "C004",
+    "book_id": "B004",
+    "book_title": "Webデザイン入門",
+    "category": "デザイン",
+    "price": 3000,
+    "quantity": 1
+  },
+  {
+    "date": "2024-01-03",
+    "order_id": 1005,
+    "customer_id": "C005",
+    "book_id": "B002",
+    "book_title": "データ分析実践ガイド",
+    "category": "データサイエンス",
+    "price": 3200,
+    "quantity": 1
+  },
+  {
+    "date": "2024-01-04",
+    "order_id": 1006,
+    "customer_id": "C006",
+    "book_id": "B005",
+    "book_title": "統計学の基本",
+    "category": "数学",
+    "price": 2500,
+    "quantity": 1
+  },
+  {
+    "date": "2024-01-04",
+    "order_id": 1006,
+    "customer_id": "C006",
+    "book_id": "B003",
+    "book_title": "機械学習の基礎",
+    "category": "AI",
+    "price": 4500,
+    "quantity": 1
+  },
+  {
+    "date": "2024-01-05",
+    "order_id": 1007,
+    "customer_id": "C007",
+    "book_id": "B006",
+    "book_title": "SQLデータベース入門",
+    "category": "データベース",
+    "price": 3800,
+    "quantity": 1
+  },
+  {
+    "date": "2024-01-05",
+    "order_id": 1008,
+    "customer_id": "C008",
+    "book_id": "B001",
+    "book_title": "Python入門",
+    "category": "プログラミング",
+    "price": 2800,
+    "quantity": 1
+  },
+  {
+    "date": "2024-01-06",
+    "order_id": 1009,
+    "customer_id": "C009",
+    "book_id": "B007",
+    "book_title": "JavaScript完全ガイド",
+    "category": "プログラミング",
+    "price": 4000,
+    "quantity": 1
+  },
+  {
+    "date": "2024-01-06",
+    "order_id": 1010,
+    "customer_id": "C010",
+    "book_id": "B005",
+    "book_title": "統計学の基本",
+    "category": "数学",
+    "price": 2500,
+    "quantity": 2
+  },
+  {
+    "date": "2024-01-07",
+    "order_id": 1011,
+    "customer_id": "C011",
+    "book_id": "B002",
+    "book_title": "データ分析実践ガイド",
+    "category": "データサイエンス",
+    "price": 3200,
+    "quantity": 1
+  },
+  {
+    "date": "2024-01-07",
+    "order_id": 1011,
+    "customer_id": "C011",
+    "book_id": "B006",
+    "book_title": "SQLデータベース入門",
+    "category": "データベース",
+    "price": 3800,
+    "quantity": 1
+  },
+  {
+    "date": "2024-01-08",
+    "order_id": 1012,
+    "customer_id": "C012",
+    "book_id": "B008",
+    "book_title": "Rによるデータ可視化",
+    "category": "データサイエンス",
+    "price": 3500,
+    "quantity": 1
+  },
+  {
+    "date": "2024-01-08",
+    "order_id": 1013,
+    "customer_id": "C013",
+    "book_id": "B003",
+    "book_title": "機械学習の基礎",
+    "category": "AI",
+    "price": 4500,
+    "quantity": 1
+  },
+  {
+    "date": "2024-01-09",
+    "order_id": 1014,
+    "customer_id": "C014",
+    "book_id": "B009",
+    "book_title": "ディープラーニング入門",
+    "category": "AI",
+    "price": 5000,
+    "quantity": 1
+  },
+  {
+    "date": "2024-01-09",
+    "order_id": 1015,
+    "customer_id": "C015",
+    "book_id": "B001",
+    "book_title": "Python入門",
+    "category": "プログラミング",
+    "price": 2800,
+    "quantity": 1
+  },
+  {
+    "date": "2024-01-10",
+    "order_id": 1016,
+    "customer_id": "C016",
+    "book_id": "B010",
+    "book_title": "クラウドコンピューティング概論",
+    "category": "インフラ",
+    "price": 4200,
+    "quantity": 1
+  }
+]
