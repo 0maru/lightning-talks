@@ -1,6 +1,6 @@
 ---
 theme: seriph
-title: Vercel v0 を使用したECサイトのフロントエンド開発 
+title: Vercel v0 を使用したECサイトのフロントエンド開発
 info: |
   ## Slidev Starter Template
   Presentation slides for developers.
@@ -20,8 +20,8 @@ overviewSnapshots: true
 
 # v0 とは？？
 
-AI を活用してUIとコードの生成をおこなうツール  
-Next.js の開発を行うVercel が提供する生成AIサービス  
+Next.js の開発を行うVercel が提供する生成AIサービス
+AI を活用してUIとコードの生成をおこなうツール
 
 ---
 
@@ -79,14 +79,13 @@ http://localhost:3000/
 npm install lucide-react
 ```
 
-
 ## shadcn-ui（UIライブラリ）
 
 ```bash
 npx shadcn-ui@latest init
 ```
 
-実行したら残りすべて「Enter」 で進める  
+実行したら残りすべて「Enter」 で進める
 
 今後使用するので下記のURL開いてブラウザのタブに残す  
 https://ui.shadcn.com/docs/components/accordion
@@ -98,7 +97,7 @@ https://ui.shadcn.com/docs/components/accordion
 https://v0.dev/
 
 Vercel のアカウントにログインが必要  
-以前にVercel使う勉強会をやったのでアカウントはあるはず  
+以前にVercel使う勉強会をやったのでアカウントはあるはず
 
 ---
 
@@ -107,6 +106,7 @@ Vercel のアカウントにログインが必要
 プロンプトにECサイトのトップページを作ってくれと書き込んで実行する
 
 入れてほしいワード
+
 1. 商品一覧ページ
 2. 商品詳細ページ
 
@@ -128,7 +128,6 @@ shadcn-ui はヘッドレスUIフレームワークで、コンポーネント�
 ボタンをインポートしてファイル名を変えたら、ログインボタン、カートに追加ボタンなど無限に作ることができる。   
 ロジックをコンポーネントからできる限り切り出していたら、フレームワークの更新があっても新しくボタンをインポートして必要な分だけ書き換えたら、最新のフレームワークに則ったコンポーネントができるはず...
 
-
 ```bash
 npx shadcn@latest add xxx
 ```
@@ -138,9 +137,12 @@ npx shadcn@latest add xxx
 ---
 
 # リファクタリング
+
 コンポーネントに分かれていないとメンテナンス性であったり、再利用性が下がるので、コンポーネントに分ける。
 
-<header>から</header>までを選択して、右クリックして「Extract Component」を選択する
+<header>から</header>までを選択して、右クリックして「Extract Component」を選択する。  
+<footer>から</footer>までを選択して、右クリックして「Extract Component」を選択する。  
+これで多少のメンテナンス性が上がる。  
 
 ---
 
@@ -154,9 +156,94 @@ npx shadcn@latest add xxx
 
 # 商品一覧ページのコードを作成してもらう
 
+各々考えて入力してください。  
+出力結果は `app/products/page.tsx` に貼り付ける。
+
 ---
 
 # 商品詳細ページのコードを作成してもらう
 
+各々考えて入力してください。  
+出力結果は `app/products/[id]/page.tsx` に貼り付ける。
+
 ---
 
+# 商品一覧ページのコードを作成してもらう - 2
+
+商品一覧APIのレスポンスをベースに作ってもらう
+
+```json
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "商品1",
+      "price": 1000
+    },
+    {
+      "id": 2,
+      "name": "商品2",
+      "price": 2000
+    },
+    {
+      "id": 3,
+      "name": "商品3",
+      "price": 3000
+    }
+  ],
+  "total": 3,
+  "hasNext": false,
+  "hasPrev": false,
+  "page": 1
+}
+```
+
+---
+
+# 商品詳細ページのコードを作成してもらう - 2
+
+商品詳細APIのレスポンスをベースに作ってもらう
+
+```json
+{
+  "name": "商品1",
+  "price": 1000,
+  "description": "商品1の説明",
+  "main_image": "https://example.com/thumb.jpg",
+  "images": [
+    "https://example.com/image1.jpg",
+    "https://example.com/image2.jpg",
+    "https://example.com/image3.jpg"
+  ],
+  "stock": 10,
+  "reviews": [
+    {
+      "id": 1,
+      "name": "ユーザー1",
+      "comment": "良い商品です",
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "name": "ユーザー2",
+      "comment": "悪い商品です",
+      "rating": 1
+    }
+  ]
+}
+```
+
+---
+
+思い思いに命令してUIを作成してください。
+
+---
+
+一人ひとりUIが異なっていると思うので、みせてもいいよという人は画面共有してもらったり、
+ローカルIPとポート番号をSlackに書いてください！
+
+---
+
+# お疲れ様でした！
+
+---
