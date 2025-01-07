@@ -58,6 +58,14 @@ find * -type f | fzf > selected
 - Enter で決定
 - ctrl-c, ctrl-g, ecs で終了
 
+```
+cat package.json | jq -r '.scripts | keys[] ' | sort | fzf
+```
+
+package.json のscripts を取得して実行可能なスクリプトを表示する
+（実行するにはnpm run などに値を渡す必要があります）
+npmだったりyarnだったりpnpm のプロジェクトがある場合には ni を使うとどの環境でも動作させられます
+
 ---
 
 # シェル統合を試してみる-1
