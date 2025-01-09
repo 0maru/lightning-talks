@@ -62,9 +62,10 @@ find * -type f | fzf > selected
 cat package.json | jq -r '.scripts | keys[] ' | sort | fzf
 ```
 
-package.json のscripts を取得して実行可能なスクリプトを表示する
-（実行するにはnpm run などに値を渡す必要があります）
-npmだったりyarnだったりpnpm のプロジェクトがある場合には ni を使うとどの環境でも動作させられます
+package.json のscripts を取得して実行可能なスクリプトを表示する  
+（実行するにはnpm run などに値を渡す必要があります）  
+npmだったりyarnだったりpnpm のプロジェクトがある場合には ni を使うとどの環境でも動作させられます  
+（fab でも使えたら便利だと思ったが、まだできていない。fab --shortlist 使うとタスクは取れるので、１つで良ければ実行まではできる。fzf を環境、実行を選ぶようなスクリプトにしたらできそう）
 
 ---
 
@@ -107,15 +108,21 @@ fzf --fish | source
 
 # シェル統合を試してみる-3
 
+cd できる先を選ぶ
+
 ```bash
 cd **<TAB>
 ```
 
-```Bash
+vim で開くファイルを選ぶ
+
+```bash
 vim **<TAB>
 ```
 
-```Bash
+ssh する先を選ぶ
+
+```bash
 ssh **<TAB>
 ```
 
@@ -125,6 +132,8 @@ ssh **<TAB>
 
 使わない方は下記のコマンドでアンインストールしてお掃除してください
 
-```Bash
+```bash
 brew uninstall fzf ghq
 ```
+
+---
