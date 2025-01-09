@@ -1,5 +1,5 @@
 ---
-theme: seriph
+theme: default
 title: Vercel v0 を使用したECサイトのフロントエンド開発 
 info: |
   ## Slidev Starter Template
