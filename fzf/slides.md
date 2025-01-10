@@ -255,6 +255,14 @@ zle（Zsh Line Editor） とはキーバインディングの管理や入力補�
 
 ---
 
+# fzf の見た目をカスタマイズする
+
+fzf Theme Playground （https://vitormv.github.io/fzf-themes/）
+
+色やカーソルを変更してExport して.zshrc や .zshenvなどに貼り付けるとデフォルトの見た目を変えることができる
+
+---
+
 # fzf, ghq のアンインストール
 
 使わない方は下記のコマンドでアンインストールしてお掃除してください
