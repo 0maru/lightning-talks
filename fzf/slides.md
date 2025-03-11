@@ -11,6 +11,7 @@ drawings:
   persist: false
 # enable MDC Syntax: https://sli.dev/features/mdc
 mdc: true
+dark: true
 ---
 
 # fzf
@@ -214,7 +215,7 @@ vim ~/.zshrc
 function git-branches-fzf() {
   local branch=$(
     git branch -a |
-    fzf --preview="echo {} | tr -d ' *' | xargs git plog --color=always" |
+    fzf --preview="echo {} | tr -d ' *' | xargs git log" |
     head -n 1 |
     perl -pe "s/\s//g; s/\*//g; s/remotes\/origin\///g"
   )
