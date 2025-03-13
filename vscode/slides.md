@@ -58,3 +58,18 @@ transition: fade-out
 IntelliJ IDEA Keybindings を使うとIntelliJ のキーマップが使用できます  
 
 k--kato.intellij-idea-keybindings  
+
+---
+
+# .code-workspace のススメ
+
+code-workspaceとは?
+
+code-workspaceはVS Codeのプロジェクトを管理するためのファイル
+複数のリポジトリを１つのエディタで見たり、このワークスペース専用の設定などができる
+
+# VS Code の問題点
+
+フロントエンドもバックエンドも開発するし、担当プロジェクトが多いエンジニアがほとんど  
+PycharmやWebStormのようにアプリが別れている場合には、アプリを切り替えればバックエンド、フロントエンドのコードを表に持ってこれたが、VS Codeではどの環境でも同じVS Codeになっている。
+
