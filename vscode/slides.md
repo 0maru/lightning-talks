@@ -192,6 +192,8 @@ File > Add Folder to Workspace でワークスペースに追加して保存す�
 window.title を設定することで、Mission Control のときにアプリのタイトルがwindow.titile で設定した値になる  
 titleBar の色も変えているので、titleBar の色でプロジェクトを判別することもできる  
 
+ビルドの設定もかけるので、個人の設定を書いたり、１つのタスクを実行することで複数のタスクを実行するような設定もかける 
+
 ### おすすめの管理法
 
 プライベートリポジトリにcode-workspace ファイルをまとめたリポジトリを作成する
