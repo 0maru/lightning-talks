@@ -163,15 +163,15 @@ File > Add Folder to Workspace でワークスペースに追加して保存す�
   "folders": [
     {
       "name": "yyyyy-client",
-      "path": "../../xxxxxx-tokyo/yyyyy-client"
+      "path": "../../xxxxxx-zzzzz/yyyyy-client"
     },
     {
       "name": "xxxxxx-blog",
-      "path": "../../xxxxxx-tokyo/xxxxxx-blog"
+      "path": "../../xxxxxx-zzzzz/xxxxxx-blog"
     },
     {
       "name": "xxxxxx-id",
-      "path": "../../xxxxxx-tokyo/xxxxx-id"
+      "path": "../../xxxxxx-zzzzz/xxxxxx-id"
     },
   ],
   "settings": {
