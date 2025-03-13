@@ -2,7 +2,7 @@
 # You can also start simply with 'default'
 theme: seriph
 title: VS Codeへの移り方
-info: 
+info: ””
 class: text-center
 drawings:
   persist: false
@@ -16,6 +16,66 @@ mdc: true
 transition: fade-out
 ---
 
+## インストールしましょう
+
+個人的にはIndiders版（ベータ版）がおすすめ
+
+```
+brew install visual-studio-code@insiders
+```
+
+安定版がいいならこれ
+
+```
+brew install visual-studio-code
+```
+
+---
+
+## 起動してみる
+
+
+--- 
+
+## Copilot, Copilot Chat のインストール
+
+
+cmd + shift + p でコマンドパレットを開いて Extensions: Install Extensions を選択
+
+shift + cmd + x  
+
+で Extesions を開いて検索してインストールする
+
+---
+
+## copilot の設定
+
+画面右下の「Sign In to Use Copilot」をクリック
+
+---
+
+## Copilot Chat
+
+質問をすると回答をくれる
+
+必要なコードをコピーして貼り付けて終わり
+
+---
+
+## Copilot EDIT
+
+Editモード、Agentモードがある
+
+### Editモード
+
+編集するファイルを選択してコンテキストとプロンプトを提供するとコード編集を提案してくれるので、その変更を受け入れる・受け入れないを選択する
+
+### Agentモード
+
+編集リクエストに対してCopilot が自律的に必要なタスクと関連ファイルを探し、コード編集やターミナルでのコマンド実行を提案し、継続的に反復する
+
+---
+
 # 個人的なおすすめの設定
 
 - "editor.minimap.enabled": false, // ミニマップを非表示にする
@@ -24,36 +84,49 @@ transition: fade-out
 - "editor.bracketPairColorization.enabled": true // 括弧の対応を色付ける
 - "editor.renderWhitespace": "all", // 空白を表示する
 - "window.title": "", // タイトルを設定しない
+- "editor.formatOnSave": true // 保存時に自動フォーマット
+- "editor.linkedEditing": true // HTMLタグなどの関連要素を同時編集
+- "workbench.editor.enablePreview": false // プレビューモードを無効化
+- "workbench.editor.revealIfOpen": true // 既に開いているファイルを再度開こうとすると、そのタブにフォーカス
+
+
+タイトルを設定しないは後で回収します
 
 ---
 
-# おすすめのキーバインド
+## 設定することをおすすめするキーバインド
 
-## ファイル作成
+### ファイル作成
 
-## フォルダ作成
+explorer.newFile
 
+### フォルダ作成
+
+explorer.newFolder
+
+### Exploer タブを開く
+
+workbench.view.explorer
 
 ---
 
+## おすすめの拡張機能（必須級）
 
-# おすすめの拡張機能（必須級）
-
-## EditorConfig for VS Code
+### EditorConfig for VS Code
 
 これがないとeditorconfigの設定が反映されません...
 
-## Prettier - Code formatter
+### Prettier - Code formatter
   
 フォーマッターが存在しないとコードのフォーマットができないので、jsだけじゃなくjsonなどのフォーマットもできるように入れておく
 
-## GitLens - Git supercharged
+### GitLens - Git supercharged
 
 エディターの Git統合を強化してくれる
 
 ---
 
-# IntelliJ のキーマップが使いたい
+## IntelliJ のキーマップが使いたい
 
 IntelliJ IDEA Keybindings を使うとIntelliJ のキーマップが使用できます  
 
@@ -61,15 +134,66 @@ k--kato.intellij-idea-keybindings
 
 ---
 
-# .code-workspace のススメ
+## .code-workspace のススメ
 
 code-workspaceとは?
 
 code-workspaceはVS Codeのプロジェクトを管理するためのファイル
 複数のリポジトリを１つのエディタで見たり、このワークスペース専用の設定などができる
 
-# VS Code の問題点
+### VS Code の問題点
 
 フロントエンドもバックエンドも開発するし、担当プロジェクトが多いエンジニアがほとんど  
 PycharmやWebStormのようにアプリが別れている場合には、アプリを切り替えればバックエンド、フロントエンドのコードを表に持ってこれたが、VS Codeではどの環境でも同じVS Codeになっている。
 
+---
+
+## ワークスペースの作り方
+
+File > Add Folder to Workspace でワークスペースに追加して保存する
+
+すでにエディタを開いていて、追加したいなら `code -a .` で追加もできる
+
+---
+
+### 例
+
+```json
+{
+  "folders": [
+    {
+      "name": "yyyyy-client",
+      "path": "../../xxxxxx-tokyo/yyyyy-client"
+    },
+    {
+      "name": "xxxxxx-blog",
+      "path": "../../xxxxxx-tokyo/xxxxxx-blog"
+    },
+    {
+      "name": "xxxxxx-id",
+      "path": "../../xxxxxx-tokyo/xxxxx-id"
+    },
+  ],
+  "settings": {
+    "window.title": "ぷぷぷぷろじぇくとめい",
+    "files.autoSave": "afterDelay",
+    "workbench.colorCustomizations": {
+      "titleBar.activeBackground": "#f830dd",
+      "titleBar.activeForeground": "#ffffff",
+      "titleBar.inactiveBackground": "#f830dd",
+      "titleBar.inactiveForeground": "#ffffff"
+    }
+  }
+}
+```
+
+### code-workspace 
+
+window.title を設定することで、Mission Control のときにアプリのタイトルがwindow.titile で設定した値になる  
+titleBar の色も変えているので、titleBar の色でプロジェクトを判別することもできる  
+
+### おすすめの管理法
+
+プライベートリポジトリにcode-workspace ファイルをまとめたリポジトリを作成する
+
+開くときはそのリポジトリに移動してcode xxxxxx.code-workspace で開くことができる
