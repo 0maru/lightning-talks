@@ -205,12 +205,39 @@ titleBar の色も変えているので、titleBar の色でプロジェクト�
 開くときはそのリポジトリに移動してcode xxxxxx.code-workspace で開くことができる
 
 ---
+
+### Cursor  
+
+https://www.cursor.com/ja
+
+VSCodeのFork  
+ChatGPT の方が使用していて火がついた
+
+
+### Windsurf
+
+https://codeium.com/windsurf
+
+Codeium製の独自IDE  
+全ファイル認識してと自動でタグ付けしてくれる  
+→コンテキストが充実する
+
+### Trae 
+
+https://www.trae.ai/
+
+ByteDance が開発しているエディタ  
+VSCodeのFork  
+Claude-3.5-Sonnet が無料で使える
+
+
+---
 align: center
 ---
-
 # 一番大切なことは無理やり使うこと
 
 ---
 
 ## おわり
+
 
