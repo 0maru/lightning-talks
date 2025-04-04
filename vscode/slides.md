@@ -1,6 +1,5 @@
 ---
 # You can also start simply with 'default'
-theme: seriph
 title: VS Codeへの移り方
 info: ””
 class: text-center
