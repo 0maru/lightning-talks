@@ -25,7 +25,54 @@ mdc: true
 #  ogImage: https://cover.sli.dev
 ---
 
-# Deno でMCP サーバーを作成する
+# Model Context Protocol
+
+---
+
+# Model Context Protocol（MCP）とは
+
+MCPと省略した形で書かれる事が多い  
+Anthoropic社が策定した、AIモデルとアプリケーション間の通信を行うためのプロトコル
+
+Claude Desktop やVS Code、Cline、Cursor などが対応している
+![alt text](image.png)
+
+---
+
+# 仕組み
+
+MCP Client（Claude Desktopなど） とMCP Server がありこの間は標準入出力かStreamable HTTPで通信を行う
+メッセージはJSON-RPC形式でやり取りされる
+プロンプトが送信されると、LLM が登録されているMCPを確認して、使用するかを判断してくれる
+→LLMの判断なので、似た機能があったりすると意図しない動作をすることがある
+MCP の有効、無効を管理できるものも出てきている
+
+---
+
+
+# MCP の機能
+
+- Prompt
+- Tools
+- Sampling
+- Roots
+- Transports
+
+---
+
+# MCP の種類
+
+- AWS MCP
+- GitHub MCP
+- Playwright MCP
+- Figma MCP
+- Postgres MCP
+
+---
+
+# MCP利用時における注意点
+
+- セキュリティ
 
 ---
 
