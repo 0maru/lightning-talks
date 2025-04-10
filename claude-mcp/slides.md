@@ -87,7 +87,151 @@ LLMに対してコンテキストを与える事ができるので、最新の�
 
 ---
 
-# Deno とは？
+## MCP を使ってみる
+
+Claude Desktop のインストール
+
+```shell
+brew install claude
+```
+
+---
+
+## AWS Documentation MCP Server の起動準備
+
+Python で実装されたMCP Serverなのでuvをインストールしておく
+
+
+```shell
+brew install uv
+uv python install 3.13
+```
+
+```shell
+uvx awslabs.aws-documentation-mcp-server@latest
+```
+
+---
+
+## Claude Desktop への登録
+
+1. Claude Desktop を起動して cmd + , で設定画面を開く  
+2. Developer をクリック
+3. Edit config をクリック
+4. Finderが開くので、claude_desktop_config.json を開く
+
+---
+
+## MCP Server の登録
+
+```json
+{
+  // ... その他
+  "mcpServers": {
+    "awslabs.aws-documentation-mcp-server": {
+        "command": "/opt/homebrew/bin/uvx",
+        "args": ["awslabs.aws-documentation-mcp-server@latest"],
+        "env": {
+          "FASTMCP_LOG_LEVEL": "ERROR"
+        },
+        "disabled": false,
+        "autoApprove": []
+    }
+  }
+  // ... その他
+}
+```
+
+保存したら Claude Desktop を再起動してください  
+uv のパスは　`which uv` で確認してください
+
+---
+
+layout: image
+
+image: CleanShot 2025-04-11 at 01.27.55.png
+
+---
+
+## 登録の確認
+
+---
+
+## 動作させてみる
+
+```
+EC2インスタンスの命名規則はありますか
+```
+
+```
+Allow tool from “awslabs.aws-documentation-mcp-server” (local)?
+```
+
+というメッセージが出てきたら、MCP Server が起動している証拠です  
+Allow for this chat か Allow Once をクリックするとMCP Server が有効になります  
+
+---
+
+## AWS MCP を使用する理由
+
+Claude やChatGPT は最新の情報も持っているわけではなく、知識はカットオフがされている。  
+AWSのドキュメントは常に最新の情報が更新されているので、MCP Server をLLMに情報を与えることで、最新の情報までを考慮した回答ができる。  
+
+- AWS CDK MCP Server 
+  - AWS CDKのドキュメントやベストプラクティスを提供
+- Cost Analysis MCP Server
+  - AWSサービスのコスト分析機能を提供
+等がある
+
+---
+
+## GitHub MCP Server の登録
+
+YOUR_TOKEN にはGitHubのPersonal Access Tokenを入れてください
+gh auth token でも取得できます
+
+```json
+"github": {
+  "command": "docker",
+  "args": [
+    "run",
+    "-i",
+    "--rm",
+    "-e",
+    "GITHUB_PERSONAL_ACCESS_TOKEN",
+    "ghcr.io/github/github-mcp-server"
+  ],
+  "env": {
+    "GITHUB_PERSONAL_ACCESS_TOKEN": "<YOUR_TOKEN>"
+  }
+}
+```
+
+---
+
+## GitHub MCP Server を使ってみる
+
+```
+私のGitHubアカウントは？
+```
+
+```
+ブログ用のリポジトリを作成して。リポジトリ名はblog
+```
+
+---
+
+GitHub MCP Server をVS Code やJetBrains IDE に登録することで、AI経由でコミットしてPRを作成することもできる  
+API経由で行えてインタフェースが定義されているので間違いにくい  
+登録されているAPIだけを使えば、存在しない機能を使いような事にならない  
+
+---
+
+# MCP Server を作ってみよう
+
+---
+
+## Deno とは？
 
 - Ryan Dahl（Node.jsの創始者）によって開発された新しいJavaScriptランタイム
 - Node.jsの「設計上の後悔」を修正するために作られた
@@ -98,7 +242,7 @@ LLMに対してコンテキストを与える事ができるので、最新の�
 
 ---
 
-# なぜDeno?
+## なぜDeno?
 
 - セキュリティ：デフォルトで安全（ファイルシステム、ネットワークへのアクセスは明示的な許可が必要）
 - TypeScriptのネイティブサポート（トランスパイラ不要）
@@ -113,7 +257,7 @@ LLMに対してコンテキストを与える事ができるので、最新の�
 
 ---
 
-# セキュリティ的にデフォルトで安全とは？
+## セキュリティ的にデフォルトで安全とは？
 
 明示的にオプションを指定しないと下記の機能が使用できない
 
@@ -124,34 +268,77 @@ LLMに対してコンテキストを与える事ができるので、最新の�
 
 さらにV8エンジンのサンドボックス環境で実行されるので、OSのリソースへのアクセスは制限されている
 
---
-
-# MCP とは？
-
 ---
 
-# 準備
+## 準備
  
- Claude Desktop とDeno のインストール
+Deno のインストール
 
 ```
-brew install claude
 brew install deno
 ```
 
 ---
 
-# MCPプロジェクトを作成する
+# # MCPプロジェクトを作成する
+
+redash-mcp-server という名前でプロジェクトを作成する  
+せっかくなのでClaude Desktop で作成してみてください
+
+```
+mcp-server-sample という名前のプライベートリポジトリを作成してください
+```
 
 ---
 
-# 最低限のコードを書いてClaude にMCPサーバを接続する
+## リポジトリをクローンする
 
 ---
 
-# Redash に接続するコードを書く
+## 最低限のコードを書いてClaude にMCPサーバを接続する
+
+```typescript
+import { McpServer } from "npm:@modelcontextprotocol/sdk/server/mcp.js";
+import { StdioServerTransport } from "npm:@modelcontextprotocol/sdk/server/stdio.js";
+import { z } from "npm:zod";
+
+const server = new McpServer({
+  name: "mcp-server-sample",
+  version: "1.0.0",
+});
+
+server.tool(
+  "double_number",
+  "与えられた数値を2倍にする",
+  {num: z.number().describe("数値")},
+  ({num}) => ({
+    content: [{type: "text", text: (num * 2).toString()}]
+  }),
+);
+
+async function main() {
+  const transport = new StdioServerTransport();
+  await server.connect(transport);
+  console.error("Example MCP Server running on stdio");
+}
+
+main();
+```
 
 ---
 
-# Claude経由でRedash の操作を行う
+## Claude Desktop に登録する
 
+```json
+"mcp-server-sample": {
+  "command": "/opt/homebrew/bin/deno",
+  "args": [
+    "run",
+    "/Users/3maru/workspaces/github.com/0maru/mcp-server-sample/main.ts",
+  ],
+  "disabled": false,
+  "autoApprove": []
+}
+```
+
+---
