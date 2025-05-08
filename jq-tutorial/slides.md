@@ -30,8 +30,7 @@ overviewSnapshots: true
 
 ## curl コマンドとは??
 
-HTTP/HTTPS をはじめ FTP, SFTP, SMTP
-など多数のプロトコルに対応したコマンドラインツール
+HTTP/HTTPS をはじめ FTP, SFTP, SMTP など多数のプロトコルに対応したコマンドラインツール
 
 インストールの確認
 
@@ -43,13 +42,8 @@ which curl
 
 ## curl を最新のバージョンにアップデートする
 
-```bash
-which curl
-```
-
-結果が`/usr/bin/curl` になっている場合にはmacOSにバンドルされているcurl
-が使用されています。 アップデートしたいのでbrew からインストールしてbrew
-でインストールしたcurlを使用するように書き換えます。
+which の結果が`/usr/bin/curl` になっている場合にはmacOSにバンドルされているcurlが使用されています。  
+アップデートしたいのでbrew からインストールしてbrewでインストールしたcurlを使用するように変更します。
 
 インストール方法
 
@@ -126,12 +120,36 @@ curl 'https://api.github.com/repos/0maru/twitter_login/issues' | jq '.[] | [.num
 
 sales_2024.json を保存して、保存したファイルがあるディレクトリに移動する
 
-```
+```bash
+# json の内容をルートから見る
 jq . sales_2024.json
 
+# total だけを抜き出して見る
 jq '[.[].total]' -r sales_2024.json
 
+# total の合計を出す
 jq '[.[].total] | add' -r sales_2024.json
+
+# 合計と平均単価を出す
+jq '{
+  total_sum: ([.[].total] | add),
+  avg_unit_price: ([.[].unit_price] | add / length)
+}' sales_2024.json
+```
+
+---
+
+## jq を使ってみる-3
+
+valueだけ取得する
+
+```bash
+echo '{"key1": "val1", "key2": "val2"}' | jq '[.key1, .key2]'
+```
+
+```bash
+# "key": "value" の形に変換する
+echo '[{"Key": "tagkey", "Value": "value"},{"Key": "tagkey2", "Value": "value２"}]' | jq 'from_entries'
 ```
 
 ---
@@ -140,14 +158,18 @@ jq '[.[].total] | add' -r sales_2024.json
 
 1. DevTools を開く
 2. Network タブを開く
-3. Copy → Copy as cURL をクリック
+3. Copy → Copy as curl をクリック
 
-cURL
-コマンドがコピーできたのでターミナルに貼り付けたら何度もAPI通信を行う事ができる\
-unit test やintegration test
-で動作を担保するべきだが、初めてプログラムの動作チェックやSentry
-で発生したエラーと同じリクエストを送って、動作を確認することができる。\
-モバイルアプリからのリクエストをcURLコマンドで貰い、アプリからのリクエストをシミュレートする事もできる。
+curl コマンドがコピーできたのでターミナルに貼り付けたら何度もAPI通信を行う事ができる  
+unit test やintegration test で動作を担保するべきだが、初めてプログラムの動作チェックやSentry
+で発生したエラーと同じリクエストを送って、動作を確認することができる。  
+モバイルアプリからのリクエストをcurlコマンドで貰い、アプリからのリクエストをシミュレートする事もできる。
+
+```bash
+ブラウザから取得したcurl | jq
+```
+
+でターミナル上で値の確認が行える
 
 ---
 
@@ -163,21 +185,28 @@ brew install postman
 
 ## curl からPostman のリクエストを作成する
 
-ブラウザ上からcurlコマンドを取得する と同じ手順でcURLコマンドをコピーしてURL
-の項目に貼り付けると手書きしなくてもPostmanのリクエストが作成できる
+ブラウザ上からcurlコマンドを取得する と同じ手順でcurlコマンドをコピーしてURL の項目に貼り付けると手書きしなくてもPostmanのリクエストが作成できる  
+curl を内容をGUIで書き換えることができるので色々検証に使用できる  
+IDEのhttp clinet でも同じことができるがパラメータの有効、無効とか便利な機能もあるのでやりたいことで使い分けると良い
 
 ---
 
 ## 今後の活用方法
 
-curl
-でリクエストを送って、jqでレスポンスを見ることができるのでUIやテストを書く前でもAPIのレスポンスが見れる、共有できる
+curl でリクエストを送って、jqでレスポンスを見ることができるのでUIやテストを書く前でもAPIのレスポンスが見れる、共有できる
 
 HTTPie を使うのも良き (内部ではPython のrequestsが使用されている)\
 ※curl なら急に共有されてもmacOS を使用していたら実行できるがHTTPie
 は事前にインストールが必要
 
-手元で検証する段階はHTTPieでやって
+手元で検証する段階はHTTPieでやってcurl で共有するが誰でもどの環境でも動かせる内容になる  
+HTTPie のGUIツールからcurl コマンドがコピーできるので変換は楽
+
+---
+
+## HTTPie とcurl の比較
+
+CLIツールとGUIツールのダウンロード方法
 
 ```bash
 # CLI ツール
@@ -195,3 +224,20 @@ curl -X POST https://httpbin.org/post \
 
 https POST https://httpbin.org/post message=こんにちは
 ```
+
+セッションをファイルキャッシュしてくれるので順次コマンド打って、結果がわかるのはやりやすい  
+ダウンロードもできるので環境を選ぶがwgetの代わりに使うこともできる
+
+```bash
+https -d URL
+```
+
+---
+
+## まとめ
+
+フロントエンドとバックエンドで複数人が関わって開発するので、なにかしらの情報共有は必要  
+簡単にこのようにリクエストを送ってやこのようなリクエストを送るとエラーになったを共有する方法としてぜひ活用してください
+
+jq データを見るのもいいですが、試行錯誤しながらやる場合はduckdb もおすすめなので、色々試してその時に適切なものが使えると◎  
+duckdbにいれる前の整形でjq を使うパターンもあるかも??
