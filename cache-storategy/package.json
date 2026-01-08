@@ -1,0 +1,19 @@
+{
+  "name": "cache-storategy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "marp slides.md -o index.html",
+    "build:pdf": "marp slides.md -o slides.pdf",
+    "watch": "marp -w slides.md -o index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@marp-team/marp-cli": "^4.2.3"
+  }
+}
