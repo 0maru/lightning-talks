@@ -26,6 +26,8 @@ duration: 35min
 
 # モダンCSS　2025ver
 
+愛を込めて手作業でちょっと古いやり方で作りました
+
 ---
 
 ## 中央寄せはどうやる？？
@@ -66,7 +68,7 @@ duration: 35min
 
 ---
 
-## Gridを使う
+### Gridを使う
 
 grid を使うと2つのクラスで中央寄せができる
 
@@ -78,6 +80,8 @@ grid を使うと2つのクラスで中央寄せができる
 }
 </style>
 ```
+
+---
 
 ### Tailwind CSSを使うと
 
@@ -133,25 +137,6 @@ align-content:center で縦に寄せることができる
 がすべてに0を指定していたものと同じ。  
 0は1でも２何でも好きな数字にできる
 
----
-
-### 要素がある、なしでスタイルが変わる
-
-コーポレートサイトのサービス一覧ページとか  
-css をif の条件で切り分ける
-
----
-
-### :has() 擬似クラスを使う
-
-```html
-<body>
-</body>
-<style>
-.card:has(.image) {
-  border-color: green;
-}
-</style>
 ---
 layout: image-left
 
@@ -247,7 +232,7 @@ css の scroll-snap-type を使うと簡単にカルーセルが実装できる
 
 ---
 
-### diaglo はどうやって実装する??
+### dialog はどうやって実装する??
 
 #### 実装案
 
@@ -287,6 +272,27 @@ dialog[open] {
     opacity: 1;
     transform: translateY(0);
   }
+}
+</style>
+```
+
+---
+
+### 要素がある、なしでスタイルが変わる
+
+コーポレートサイトのサービス一覧ページとか  
+css をif の条件で切り分ける
+
+---
+
+### :has() 擬似クラスを使う
+
+```html
+<body>
+</body>
+<style>
+.card:has(.image) {
+  border-color: green;
 }
 </style>
 ```
