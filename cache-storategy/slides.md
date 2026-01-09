@@ -1,108 +1,10 @@
 ---
 marp: true
-theme: custom
+theme: default
 paginate: true
 backgroundColor: #0f172a
-color: #f1f5f9
+color: #d135f9
 ---
-
-<style>
-/* カスタムテーマ */
-section {
-  font-family: 'Noto Sans JP', 'Arial', sans-serif;
-  padding: 40px 60px;
-}
-
-h1 {
-  color: #f1f5f9;
-  font-size: 2.2em;
-  margin-bottom: 0.5em;
-}
-
-h2 {
-  color: #94a3b8;
-  font-size: 1.4em;
-}
-
-code {
-  background: #1e293b;
-  color: #22d3ee;
-  padding: 2px 8px;
-  border-radius: 4px;
-}
-
-pre {
-  background: #1e293b;
-  border-radius: 8px;
-  padding: 16px;
-}
-
-/* Era colors */
-.spa { color: #f59e0b; }
-.ssr { color: #8b5cf6; }
-.isr { color: #10b981; }
-.accent { color: #3b82f6; }
-
-/* Badge */
-.badge {
-  display: inline-block;
-  background: #3b82f6;
-  color: #fff;
-  padding: 4px 12px;
-  border-radius: 4px;
-  font-size: 0.7em;
-  font-weight: bold;
-}
-
-/* Card */
-.card {
-  background: #1e293b;
-  border-radius: 12px;
-  padding: 20px;
-  margin: 10px 0;
-}
-
-/* Timeline bar */
-.timeline-bar {
-  display: flex;
-  height: 6px;
-  border-radius: 3px;
-  overflow: hidden;
-  margin: 20px 0;
-}
-
-/* Table styling */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.85em;
-}
-
-th {
-  background: #334155;
-  padding: 12px;
-  text-align: center;
-}
-
-td {
-  background: #1e293b;
-  padding: 10px 12px;
-  text-align: center;
-  border-bottom: 1px solid #334155;
-}
-
-/* Title slide */
-section.title {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-section.title h1 {
-  font-size: 2.8em;
-  line-height: 1.2;
-}
-</style>
 
 <!-- _class: title -->
 
@@ -122,53 +24,19 @@ section.title h1 {
 
 # アジェンダ
 
-<div style="display: grid; gap: 20px; margin-top: 20px;">
-
-<div style="display: flex; gap: 16px; align-items: flex-start;">
-  <div style="background: #f59e0b; color: #0f172a; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">1</div>
-  <div>
-    <p style="margin: 0; font-weight: bold;">SPA時代（2013〜2018）</p>
-    <p style="margin: 0; color: #94a3b8; font-size: 0.85em;">クライアントサイドレンダリングとimmutableアセット戦略</p>
-  </div>
-</div>
-
-<div style="display: flex; gap: 16px; align-items: flex-start;">
-  <div style="background: #8b5cf6; color: #fff; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">2</div>
-  <div>
-    <p style="margin: 0; font-weight: bold;">SSR/Jamstack時代（2016〜2019）</p>
-    <p style="margin: 0; color: #94a3b8; font-size: 0.85em;">サーバーサイドレンダリング回帰と静的サイト生成</p>
-  </div>
-</div>
-
-<div style="display: flex; gap: 16px; align-items: flex-start;">
-  <div style="background: #10b981; color: #fff; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">3</div>
-  <div>
-    <p style="margin: 0; font-weight: bold;">ISR/Edge時代（2020〜現在）</p>
-    <p style="margin: 0; color: #94a3b8; font-size: 0.85em;">stale-while-revalidateとEdge Computeの活用</p>
-  </div>
-</div>
-
-<div style="display: flex; gap: 16px; align-items: flex-start;">
-  <div style="background: #3b82f6; color: #fff; width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; flex-shrink: 0;">4</div>
-  <div>
-    <p style="margin: 0; font-weight: bold;">まとめ</p>
-    <p style="margin: 0; color: #94a3b8; font-size: 0.85em;">各時代の比較と今後の展望</p>
-  </div>
-</div>
-
-</div>
+1. SPA時代 - クライアントサイドレンダリングとimmutableアセット戦略
+2. SSR/Jamstack時代 - サーバーサイドレンダリング回帰と静的サイト生成
+3. ISR/Edge時代 - stale-while-revalidateとEdge Computeの活用
+4. API単位のキャッシュ最適化 - データソースごとの最適化でオリジン負荷削減
+5. まとめ - 各時代の比較と今後の展望
 
 ---
 
 <!-- _header: '<span class="badge" style="background: #f59e0b; color: #0f172a;">ERA 1</span>' -->
 
-# <span class="spa">SPA時代</span>（2013〜2018）
+# SPA時代
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px;">
-
-<div>
-
-### 背景
+## 背景
 
 React（2013）、Vue（2014）の登場により、クライアントサイドでUIを構築するSPAが主流に
 
@@ -176,11 +44,9 @@ React（2013）、Vue（2014）の登場により、クライアントサイド�
 
 `React` `Vue.js` `Angular` `webpack` `REST API`
 
-</div>
+---
 
-<div class="card">
-
-### アーキテクチャ
+## アーキテクチャ
 
 ```
 ┌─────────────────────────┐
@@ -198,30 +64,20 @@ React（2013）、Vue（2014）の登場により、クライアントサイド�
 └─────────────────────────┘
 ```
 
-</div>
-
-</div>
-
 ---
 
 # SPA時代のキャッシュ戦略
 
-<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-top: 20px;">
+## index.html
 
-<div class="card" style="border-top: 3px solid #ef4444;">
-
-### index.html
 空のシェル - キャッシュ短め
 
 ```http
 Cache-Control: no-cache
 ```
 
-</div>
-
-<div class="card" style="border-top: 3px solid #10b981;">
-
 ### app.[hash].js
+
 content hash付き - 永続キャッシュ
 
 ```http
@@ -229,57 +85,17 @@ Cache-Control:
 max-age=31536000, immutable
 ```
 
-</div>
-
-<div class="card" style="border-top: 3px solid #3b82f6;">
-
-### API Response
-動的データ
-
-```javascript
-// Redux/Vuex で
-// メモリキャッシュ
-```
-
-</div>
-
-</div>
-
-<div class="card" style="border-left: 4px solid #f59e0b; margin-top: 20px;">
-
-### 💡 Service Worker の登場（2015〜）
-
-ブラウザ側でプログラマブルなキャッシュ制御が可能に。Cache-First / Network-First などの戦略を **Workbox** で実装
-
-</div>
-
 ---
-
-# SPA時代の課題
-
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px;">
-
-<div>
-
-<div class="card" style="border-left: 4px solid #ef4444; margin-bottom: 16px;">
 
 ### ⚠️ 初回表示の遅さ
 
 JSバンドルのダウンロード・パース・実行が完了するまでコンテンツが表示されない
 
-</div>
-
-<div class="card" style="border-left: 4px solid #ef4444;">
-
 ### ⚠️ SEO問題
 
 クローラーがJSを実行できないとコンテンツを認識できない。OGP取得も困難
 
-</div>
-
-</div>
-
-<div class="card">
+---
 
 ### レンダリングフロー
 
@@ -297,50 +113,34 @@ JSバンドルのダウンロード・パース・実行が完了するまでコ
 
 🐢 ユーザーはここまで待つ必要あり
 
-</div>
-
-</div>
-
 ---
+
+## SSR/Jamstack時代
 
 <!-- _header: '<span class="badge" style="background: #8b5cf6;">ERA 2</span>' -->
 
-# <span class="ssr">SSR/Jamstack時代</span>（2016〜2019）
+SPAの「初回表示の遅さ」「SEO問題」を解決するため、サーバーでHTML生成する方式が再注目
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px;">
+#### SSR - リクエスト毎にサーバーでレンダリング
 
-<div>
+Next.js / Nuxt.js
 
-### なぜSSRが復活したか
+#### SSG (Jamstack) - ビルド時に全ページを静的生成
 
-SPAの「初回表示の遅さ」「SEO問題」を解決するため、サーバーでHTMLを生成して返す方式が再注目
+Gatsby / Hugo
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px;">
+---
 
-<div class="card" style="border: 1px solid #8b5cf6; padding: 14px;">
-<p class="ssr" style="margin: 0; font-weight: bold; font-size: 0.9em;">SSR</p>
-<p style="margin: 4px 0 0 0; font-size: 0.8em;">リクエスト毎にサーバーでレンダリング</p>
-<p style="margin: 8px 0 0 0; font-size: 0.7em; color: #94a3b8;">Next.js / Nuxt.js</p>
-</div>
-
-<div class="card" style="border: 1px solid #10b981; padding: 14px;">
-<p class="isr" style="margin: 0; font-weight: bold; font-size: 0.9em;">SSG (Jamstack)</p>
-<p style="margin: 4px 0 0 0; font-size: 0.8em;">ビルド時に全ページを静的生成</p>
-<p style="margin: 8px 0 0 0; font-size: 0.7em; color: #94a3b8;">Gatsby / Hugo</p>
-</div>
-
-</div>
-
-</div>
-
-<div class="card">
+## 処理の流れ
 
 ### SSR フロー
+
 ```
 Request → [Server Render] → HTML
 ```
 
 ### SSG フロー
+
 ```
 [Build] → Static HTML → [CDN] → User
 ```
@@ -350,61 +150,40 @@ Request → [Server Render] → HTML
 初回表示でコンテンツが含まれたHTMLが返る
 → **高速表示 & SEO対応**
 
-</div>
-
-</div>
-
 ---
 
 # SSR/Jamstack時代のキャッシュ戦略
-
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px;">
-
-<div class="card" style="border-top: 3px solid #8b5cf6;">
 
 ### SSRのキャッシュ課題
 
 **問題点**: リクエスト毎にレンダリング = 高負荷
 
 **対策**:
-- Varyヘッダーでのキャッシュ分岐
+
 - ページ単位での短いTTL設定
 - パーソナライズ部分のみCSR
 
-</div>
-
-<div class="card" style="border-top: 3px solid #10b981;">
+---
 
 ### Jamstackの戦略
 
 **シンプルな解決策**: 全ページをビルド時に生成してCDNに配置
 
 **デプロイフロー**:
+
 ```
 git push → Build → CDN Deploy → Purge
 ```
 
 100%キャッシュヒット可能！
 
-</div>
-
-</div>
-
-<div class="card" style="background: linear-gradient(90deg, rgba(59,130,246,0.1), transparent); border: 1px solid #3b82f6; margin-top: 16px; text-align: center;">
-
 ### CDNキャッシュの活用が本格化
 
 `User` → `CDN Edge (Cache Hit!)` → ~~Origin~~
 
-</div>
-
 ---
 
 # SSR/Jamstack時代の課題
-
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px;">
-
-<div class="card" style="border-top: 3px solid #8b5cf6;">
 
 ### SSRの課題
 
@@ -412,49 +191,27 @@ git push → Build → CDN Deploy → Purge
 - ⚠️ **TTFB悪化** - レンダリング完了まで待機
 - ⚠️ **コスト** - 常時稼働のサーバーが必要
 
-</div>
-
-<div class="card" style="border-top: 3px solid #10b981;">
-
 ### Jamstackの課題
 
 - ⚠️ **ビルド時間** - ページ数に比例して増加
 - ⚠️ **更新頻度の制限** - 頻繁な更新には全ビルド
 - ⚠️ **動的コンテンツ** - パーソナライズに弱い
 
-</div>
-
-</div>
-
-<div class="card" style="border: 1px solid #ef4444; background: rgba(239,68,68,0.1); margin-top: 16px;">
+---
 
 ### 💡 ECサイトでの問題例
 
-商品数が **10万点** あるECサイトでは、1商品の価格変更のために全ページを再ビルドするのは現実的ではない
+商品数 **10万点** のサイトで、1商品変更のために全再ビルドは非現実的
 
-</div>
-
-<p style="text-align: center; margin-top: 16px; color: #94a3b8;">これらの課題を解決するために... → <span class="isr" style="font-weight: bold;">ISR/Edgeの登場</span></p>
+これらの課題を解決するために... → ISR/Edgeの登場
 
 ---
 
-<!-- _header: '<span class="badge" style="background: #10b981;">ERA 3</span>' -->
-
-# <span class="isr">ISR/Edge時代</span>（2020〜現在）
-
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 20px;">
-
-<div>
-
-<div class="card" style="border-left: 4px solid #10b981; margin-bottom: 16px;">
+# ISR/Edge時代（2020〜現在）
 
 ### ISR（Incremental Static Regeneration）
 
-Next.js 9.5（2020年7月）で導入。静的生成の高速さとSSRの鮮度を両立
-
-</div>
-
-<div class="card" style="margin-bottom: 16px;">
+静的生成の高速さとSSRの鮮度を両立（Next.js 9.5〜）
 
 ### stale-while-revalidate パターン
 
@@ -465,19 +222,11 @@ max-age=1, stale-while-revalidate=59
 
 古いキャッシュを即座に返しつつ、バックグラウンドで再生成
 
-</div>
-
-<div class="card">
-
 ### Edge Computeの成熟
 
 `Cloudflare Workers` `Vercel Edge` `CloudFront Functions`
 
-</div>
-
-</div>
-
-<div class="card">
+---
 
 ### ISR の動作フロー
 
@@ -505,17 +254,9 @@ max-age=1, stale-while-revalidate=59
 
 # 現代のキャッシュ戦略
 
-<div class="card" style="text-align: center; padding: 16px; margin-bottom: 16px;">
-
 ### 多層キャッシュアーキテクチャ
 
 `Browser (Service Worker)` → `Edge / CDN (KV Store / ISR)` → `Origin (Redis / DB)`
-
-</div>
-
-<div style="display: grid; grid-template-columns: 2fr 1fr; gap: 16px;">
-
-<div>
 
 ### コンテンツ別キャッシュ戦略
 
@@ -526,9 +267,7 @@ max-age=1, stale-while-revalidate=59
 | 商品詳細 | SWR | 1秒 + 59秒 |
 | カート・決済 | no-store | キャッシュなし |
 
-</div>
-
-<div class="card">
+---
 
 ### Edgeでできること
 
@@ -538,15 +277,64 @@ max-age=1, stale-while-revalidate=59
 - ✓ 地域別コンテンツ
 - ✓ Bot検出
 
-</div>
+---
 
-</div>
+# API単位のキャッシュ最適化
+
+### ページ単位 → API単位へ
+
+従来はページ全体で統一されたTTL。現代は**データソースごとに最適化**
+
+---
+
+### 実装例（Next.js）
+
+```typescript
+async function ProductPage({ id }) {
+  const [product, stock] =
+    await Promise.all([
+      // 商品情報: 1時間
+      fetch(`/api/products/${id}`, {
+        next: { revalidate: 3600 }
+      }),
+      // 在庫: 10秒
+      fetch(`/api/stock/${id}`, {
+        next: { revalidate: 10 }
+      })
+    ])
+  return <div>...</div>
+}
+```
+
+---
+
+### メリット
+
+**1. オリジン負荷削減**
+変更のないAPIはキャッシュヒット
+
+**2. レスポンスタイム最適化**
+並列取得 + 個別TTLで最速構成
+
+**3. データベース負荷分散**
+更新頻度に応じたアクセス制御
+
+---
+
+### データ特性別の戦略
+
+| データ | TTL | 理由 |
+|---|---|---|
+| 商品マスタ | 1時間 | 変更少 |
+| 在庫数 | 10秒 | リアルタイム性 |
+| レビュー | 5分 | 適度な鮮度 |
+| カート | なし | 即時反映 |
 
 ---
 
 # 時代の比較
 
-|  | <span class="spa">SPA</span> | <span class="ssr">SSR/SSG</span> | <span class="isr">ISR/Edge</span> |
+|  | SPA | SSR/SSG | ISR/Edge |
 |---|:---:|:---:|:---:|
 | キャッシュ対象 | JS/CSSアセット | 静的HTML全体 | 動的HTML + Edge処理 |
 | 初回表示速度 | △ 遅い | ○ 普通〜速い | ◎ 常に高速 |
@@ -555,54 +343,20 @@ max-age=1, stale-while-revalidate=59
 | オリジン負荷 | ○ API負荷あり | ○ SSRは高負荷 | ◎ Edgeで分散 |
 | 実装複雑さ | ○ シンプル | ○ やや複雑 | △ 設計が重要 |
 
-<div class="card" style="border: 1px solid #3b82f6; background: rgba(59,130,246,0.1); text-align: center; margin-top: 16px;">
-
 💡 ISRは「過去の手法の良いとこ取り」をフレームワークが抽象化したもの
-
-</div>
 
 ---
 
 # まとめ
 
-<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
-
-<div class="card" style="border-left: 4px solid #3b82f6;">
-
 ### キャッシュ戦略の進化
 
-「静的 vs 動的」の二択から、ISR/SWRで両方の利点を得られる時代に。キャッシュの設計次第でUXとコストを大きく改善可能
-
-</div>
-
-<div class="card" style="border-left: 4px solid #10b981;">
+「静的 vs 動的」の二択から、ISR/SWRで両立可能に。設計次第でUXとコストを大幅改善
 
 ### Edgeの活用
 
-単なるキャッシュから「処理もできるエッジ」へ。Core Web Vitals対応、オリジン負荷軽減、コスト削減の鍵
-
-</div>
-
-</div>
-
-<div class="card" style="margin-top: 20px;">
-
-### 🚀 明日から試せること
-
-1. コンテンツごとのキャッシュTTLを見直す
-2. stale-while-revalidateの導入検討
-3. Nuxt 3 Hybrid Renderingの検証
-4. CloudFront Functions活用の検討
-
-</div>
-
-<p style="text-align: center; margin-top: 30px; color: #94a3b8;">— ご質問・ディスカッション —</p>
+単なるキャッシュから「処理もできるエッジ」へ。Core Web Vitals、負荷軽減、コスト削減の鍵
 
 ---
 
-<!-- _class: title -->
-<!-- _paginate: false -->
-
-# Thank You!
-
-<p style="color: #94a3b8; font-size: 0.8em; margin-top: 40px;">参考: Next.js Docs, Vercel Blog, Cloudflare Docs, web.dev</p>
+おしまい
