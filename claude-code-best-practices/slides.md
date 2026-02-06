@@ -950,31 +950,44 @@ cp -r /shared/claude-plugins/my-plugin ~/.claude/plugins/
 
 
 <!-- スライド38: 既存プラグイン紹介 -->
-# 既存プラグイン紹介
+# 公式プラグインマーケットプレイス
 
-<div class="mt-4">
+## 🎯 カテゴリ別プラグイン
 
-| プラグイン名 | 機能 | URL |
-|------------|------|-----|
-| **claude-commit-plugin** | Git コミット規約の強制 | github.com/example/claude-commit |
-| **claude-test-plugin** | テスト自動生成 | github.com/example/claude-test |
-| **claude-deploy-plugin** | デプロイ自動化 | github.com/example/claude-deploy |
-| **claude-security-plugin** | セキュリティチェック | github.com/example/claude-security |
+### 1️⃣ コード インテリジェンス（LSP）
 
-### 🔍 探し方
+| 言語 | プラグイン |
+|------|----------|
+| Python | `pyright-lsp` |
+| TypeScript | `typescript-lsp` |
+| Rust | `rust-analyzer-lsp` |
+| Go | `gopls-lsp` |
 
-1. **GitHub検索**: "claude-code-plugin" で検索
-2. **公式リスト**: claude.ai/code/plugins（近日公開予定）
-3. **コミュニティ**: Discord, フォーラム
+### 2️⃣ 外部統合（MCP）
 
-### 💡 インストール例
+- **GitHub/GitLab**: ソース管理統合
+- **Jira/Linear**: プロジェクト管理
+- **Slack**: コミュニケーション
+- **Sentry**: モニタリング
+
+---
+
+## 🚀 インストール方法
 
 ```bash
-cd ~/.claude/plugins
-git clone https://github.com/example/claude-commit-plugin.git
+# プラグインマーケットプレイスを表示
+/plugin
+
+# 特定のプラグインをインストール
+/plugin install pyright-lsp@claude-plugins-official
+
+# デモマーケットプレイスを追加
+/plugin marketplace add anthropics/claude-code
 ```
 
-</div>
+### 💡 詳細情報
+
+公式ドキュメント: https://code.claude.com/docs/ja/discover-plugins
 
 ---
 layout: two-cols
